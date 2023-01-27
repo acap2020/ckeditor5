@@ -8,9 +8,9 @@ import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
 import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave.js';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
-import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code.js';
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock.js';
@@ -40,9 +40,6 @@ import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock.js';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
 import Link from '@ckeditor/ckeditor5-link/src/link.js';
 import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
-import List from '@ckeditor/ckeditor5-list/src/list.js';
-import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties.js';
-import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
 import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar.js';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention.js';
@@ -85,9 +82,9 @@ Editor.builtinPlugins = [
 	AutoImage,
 	AutoLink,
 	Autosave,
+	Base64UploadAdapter,
 	BlockQuote,
 	Bold,
-	CKFinderUploadAdapter,
 	CloudServices,
 	Code,
 	CodeBlock,
@@ -117,9 +114,6 @@ Editor.builtinPlugins = [
 	Italic,
 	Link,
 	LinkImage,
-	List,
-	ListProperties,
-	Markdown,
 	MediaEmbed,
 	MediaEmbedToolbar,
 	Mention,
@@ -159,51 +153,46 @@ Editor.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
+			'textPartLanguage',
 			'|',
-			'style',
 			'bold',
-			'italic',
-			'underline',
 			'strikethrough',
-			'highlight',
-			'alignment',
-			'link',
-			'bulletedList',
-			'numberedList',
-			'todoList',
-			'|',
-			'outdent',
-			'indent',
-			'|',
-			'imageUpload',
-			'blockQuote',
-			'insertTable',
-			'mediaEmbed',
-			'|',
+			'underline',
+			'italic',
 			'undo',
 			'redo',
+			'alignment',
+			'todoList',
+			'indent',
+			'outdent',
 			'-',
-			'fontBackgroundColor',
 			'fontColor',
+			'fontBackgroundColor',
 			'fontFamily',
 			'fontSize',
-			'|',
-			'horizontalLine',
-			'htmlEmbed',
-			'imageInsert',
-			'pageBreak',
-			'removeFormat',
-			'sourceEditing',
+			'highlight',
 			'specialCharacters',
-			'restrictedEditingException',
+			'|',
+			'link',
+			'imageUpload',
+			'imageInsert',
+			'mediaEmbed',
 			'|',
 			'code',
+			'blockQuote',
 			'codeBlock',
+			'htmlEmbed',
+			'pageBreak',
+			'sourceEditing',
+			'-',
+			'insertTable',
+			'horizontalLine',
+			'removeFormat',
+			'restrictedEditingException',
 			'findAndReplace',
-			'|',
 			'subscript',
 			'superscript',
-			'textPartLanguage'
+			'style'
 		],
 		shouldNotGroupWhenFull: true
 	},
