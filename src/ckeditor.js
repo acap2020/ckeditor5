@@ -8,7 +8,6 @@ import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
 import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave.js';
-import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
@@ -40,6 +39,8 @@ import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock.js';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
 import Link from '@ckeditor/ckeditor5-link/src/link.js';
 import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
+import List from '@ckeditor/ckeditor5-list/src/list.js';
+import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
 import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar.js';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention.js';
@@ -64,7 +65,6 @@ import Table from '@ckeditor/ckeditor5-table/src/table.js';
 import TableCaption from '@ckeditor/ckeditor5-table/src/tablecaption.js';
 import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
 import TableColumnResize from '@ckeditor/ckeditor5-table/src/tablecolumnresize.js';
-import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextPartLanguage from '@ckeditor/ckeditor5-language/src/textpartlanguage.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
@@ -82,7 +82,6 @@ Editor.builtinPlugins = [
 	AutoImage,
 	AutoLink,
 	Autosave,
-	Base64UploadAdapter,
 	BlockQuote,
 	Bold,
 	CloudServices,
@@ -114,6 +113,8 @@ Editor.builtinPlugins = [
 	Italic,
 	Link,
 	LinkImage,
+	List,
+	ListProperties,
 	MediaEmbed,
 	MediaEmbedToolbar,
 	Mention,
@@ -138,7 +139,6 @@ Editor.builtinPlugins = [
 	TableCaption,
 	TableCellProperties,
 	TableColumnResize,
-	TableProperties,
 	TableToolbar,
 	TextPartLanguage,
 	TextTransformation,
@@ -153,48 +153,47 @@ Editor.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
-			'textPartLanguage',
 			'|',
 			'bold',
-			'strikethrough',
-			'underline',
 			'italic',
+			'link',
+			'bulletedList',
+			'numberedList',
+			'|',
+			'outdent',
+			'indent',
+			'|',
+			'imageUpload',
+			'blockQuote',
+			'insertTable',
+			'mediaEmbed',
 			'undo',
 			'redo',
 			'alignment',
-			'todoList',
-			'indent',
-			'outdent',
-			'-',
-			'fontColor',
+			'code',
+			'codeBlock',
+			'findAndReplace',
 			'fontBackgroundColor',
+			'fontColor',
 			'fontFamily',
 			'fontSize',
 			'highlight',
-			'specialCharacters',
-			'|',
-			'link',
-			'imageUpload',
-			'imageInsert',
-			'mediaEmbed',
-			'|',
-			'code',
-			'blockQuote',
-			'codeBlock',
-			'htmlEmbed',
-			'pageBreak',
-			'sourceEditing',
-			'-',
-			'insertTable',
 			'horizontalLine',
+			'htmlEmbed',
+			'imageInsert',
+			'pageBreak',
 			'removeFormat',
+			'sourceEditing',
+			'specialCharacters',
 			'restrictedEditingException',
-			'findAndReplace',
+			'strikethrough',
+			'style',
 			'subscript',
 			'superscript',
-			'style'
-		],
-		shouldNotGroupWhenFull: true
+			'textPartLanguage',
+			'todoList',
+			'underline'
+		]
 	},
 	language: 'ja',
 	image: {
@@ -212,8 +211,7 @@ Editor.defaultConfig = {
 			'tableColumn',
 			'tableRow',
 			'mergeTableCells',
-			'tableCellProperties',
-			'tableProperties'
+			'tableCellProperties'
 		]
 	}
 };
